@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {updateData} from '../services/services'
+import {postData1} from '../services/services'
 import { Redirect } from "react-router-dom";
 
 export class UpdateCompo extends Component {
@@ -18,9 +18,9 @@ export class UpdateCompo extends Component {
         debugger
       let obj={
           name:this.state.Name,
-          id:this.state.id*1
+          dId:this.state.id
       }
-      let adddata=await updateData("http://15.206.118.222:5000/admin/department/update",obj);
+      let adddata=await postData1("http://15.206.118.222:5000/admin/department/update",obj);
       if(adddata.statusText === "error")
       {
       let test=adddata.error.response.status;
